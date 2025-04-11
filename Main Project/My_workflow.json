@@ -10,10 +10,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -1060,
-        380
+        120,
+        -40
       ],
-      "id": "c48f726f-19ff-4ddd-ad2a-0ac9aa4edfea",
+      "id": "d469b253-6ac4-41a9-b880-3c001bf86cf9",
       "name": "Webhook",
       "webhookId": "c1163b11-7572-4657-ade2-de8c12f72fdc",
       "notesInFlow": false
@@ -25,10 +25,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -860,
-        380
+        320,
+        -40
       ],
-      "id": "803d1a9e-c2c9-4df0-b3c9-a022f5e45caa",
+      "id": "e73c83c2-8ba2-43aa-860d-d83dbdeb3e03",
       "name": "Code"
     },
     {
@@ -41,10 +41,10 @@
       "type": "n8n-nodes-base.readWriteFile",
       "typeVersion": 1,
       "position": [
-        -460,
-        380
+        720,
+        -40
       ],
-      "id": "adde52b8-8f20-4ba8-a81c-2c14409f1fee",
+      "id": "8182c6a8-edc7-4b72-828f-dd598177daf0",
       "name": "Read/Write Files from Disk"
     },
     {
@@ -60,10 +60,10 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        -640,
-        380
+        540,
+        -40
       ],
-      "id": "844c662d-3200-42df-b4cd-36ab6a84ae0f",
+      "id": "c684b936-1e9f-47f7-b7fe-8c6e0e81f1cd",
       "name": "Convert to File"
     },
     {
@@ -71,100 +71,238 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -240,
-        380
+        940,
+        -40
       ],
-      "id": "b9226691-4b1d-4050-be47-3ca5aae6470b",
+      "id": "f2e1c797-e555-4987-9346-86774040510d",
       "name": "No Operation, do nothing"
     },
     {
       "parameters": {
-        "command": "for domain in $(cat /home/kali/Bug-bounty/new/domains/domains.txt); do assetfinder $domain -subs-only >> /home/kali/Bug-bounty/new/subdomains/assetfinder.txt ; done"
+        "command": "rm /home/kali/Bug-bounty/new/subdomains/assetfinder.txt ; for domain in $(cat /home/kali/Bug-bounty/new/domains/domains.txt); do assetfinder $domain -subs-only >> /home/kali/Bug-bounty/new/subdomains/assetfinder.txt ; done"
       },
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        0,
-        0
+        1240,
+        -360
       ],
-      "id": "7e91a7ed-9582-41ba-bdad-3e8aee877e0a",
+      "id": "abbd8d39-499c-4e3d-a914-d2fa8340df4b",
       "name": "Execute Command"
     },
     {
       "parameters": {
-        "command": "for domain in $(cat /home/kali/Bug-bounty/new/domains/domains.txt); do sudo sublist3r -d $domain >> /home/kali/Bug-bounty/new/subdomains/sublist3r.txt ; done"
+        "command": "rm /home/kali/Bug-bounty/new/subdomains/sublist3r.txt ; for domain in $(cat /home/kali/Bug-bounty/new/domains/domains.txt); do sudo sublist3r -d $domain >> /home/kali/Bug-bounty/new/subdomains/sublist3r.txt ; done"
       },
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        0,
-        240
+        1240,
+        -180
       ],
-      "id": "a623582a-d5e9-46c1-ac82-f359091faf83",
-      "name": "Execute Command1"
+      "id": "6288f379-d79d-4a5f-9a28-76a5f1b26170",
+      "name": "Execute Command1",
+      "disabled": true
     },
     {
       "parameters": {
-        "command": "for domain in $(cat /home/kali/Bug-bounty/new/domains/domains.txt); do findomain -t $domain -q >> /home/kali/Bug-bounty/new/subdomains/findomain.txt ; done"
+        "command": "rm /home/kali/Bug-bounty/new/subdomains/findomain.txt ; for domain in $(cat /home/kali/Bug-bounty/new/domains/domains.txt); do findomain -t $domain -q >> /home/kali/Bug-bounty/new/subdomains/findomain.txt ; done"
       },
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        20,
-        680
+        1240,
+        280
       ],
-      "id": "695e2758-286d-4f52-91ac-90086df7d280",
+      "id": "1b92f6b9-d377-4210-8e3d-ba8c56da976f",
       "name": "Execute Command2"
     },
     {
       "parameters": {
-        "command": "for domain in $(cat /home/kali/Bug-bounty/new/domains/domains.txt); do subfinder -d $domain -all --recursive >> /home/kali/Bug-bounty/new/subdomains/subfinder.txt ; done"
+        "command": "rm /home/kali/Bug-bounty/new/subdomains/subfinder.txt ; for domain in $(cat /home/kali/Bug-bounty/new/domains/domains.txt); do subfinder -d $domain -all --recursive >> /home/kali/Bug-bounty/new/subdomains/subfinder.txt ; done"
       },
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        0,
-        480
+        1240,
+        60
       ],
-      "id": "9196f8db-dbbc-4038-bddc-f00ea186059a",
+      "id": "bb6e4cae-a907-4bac-81e8-e1ddc486f38b",
       "name": "Execute Command3"
+    },
+    {
+      "parameters": {
+        "command": "rm /home/kali/Bug-bounty/new/subdomains/all_subdomains.txt ; cat /home/kali/Bug-bounty/new/subdomains/* | anew | tee /home/kali/Bug-bounty/new/subdomains/all_subdomains.txt"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        -20
+      ],
+      "id": "7200e07c-9243-4144-bd42-395335d99325",
+      "name": "Execute Command4"
+    },
+    {
+      "parameters": {
+        "command": "rm /home/kali/Bug-bounty/new/results/working_subdomains.txt ; cat /home/kali/Bug-bounty/new/subdomains/all_subdomains.txt | httpx-toolkit -sc | tee /home/kali/Bug-bounty/new/results/working_subdomains.txt"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        2100,
+        -20
+      ],
+      "id": "7ee47fd8-7436-4bca-921c-bdd71263a7f5",
+      "name": "Execute Command5"
+    },
+    {
+      "parameters": {
+        "numberInputs": 4
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        1600,
+        -40
+      ],
+      "id": "9d14138f-12cc-4db5-99c7-d1e8227ad48d",
+      "name": "Merge"
     },
     {
       "parameters": {},
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        500,
-        340
+        2540,
+        -480
       ],
-      "id": "eb5af3b2-a882-436b-8bc8-00de6f122e22",
+      "id": "aa41d648-60dd-41e6-8de7-8e8b8d427819",
       "name": "No Operation, do nothing1"
     },
     {
       "parameters": {
-        "command": "cat /home/kali/Bug-bounty/new/subdomains/* | anew | tee /home/kali/Bug-bounty/new/subdomains/all_subdomains.txt"
+        "command": "rm /home/kali/Bug-bounty/new/results/200_status.txt ; cat /home/kali/Bug-bounty/new/results/working_subdomains.txt | grep -a \"200\"| cut -d \" \" -f 1 | tee /home/kali/Bug-bounty/new/results/200_status.txt"
       },
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        720,
-        340
+        2800,
+        -560
       ],
-      "id": "3afcca9c-a53e-4799-98f1-d0e8cfe0fec7",
-      "name": "Execute Command4"
+      "id": "822f7a38-df78-4a8c-a04f-90ab4c485371",
+      "name": "Execute Command6"
     },
     {
       "parameters": {
-        "command": "cat /home/kali/Bug-bounty/new/subdomains/all_subdomains.txt | httpx-toolkit -sc | tee /home/kali/Bug-bounty/new/results/aworking_subdomains.txt"
+        "command": "rm /home/kali/Bug-bounty/new/results/400_status.txt ; cat /home/kali/Bug-bounty/new/results/working_subdomains.txt | grep -a \"200\"| cut -d \" \" -f 1 | tee /home/kali/Bug-bounty/new/results/400_status.txt"
       },
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        940,
-        340
+        2800,
+        -360
       ],
-      "id": "624c0e1d-4d4f-4fe8-8183-6f4c390120c8",
-      "name": "Execute Command5"
+      "id": "8284bbcf-2ef1-435e-bc64-4a3d31661e75",
+      "name": "Execute Command7"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        3120,
+        -480
+      ],
+      "id": "c9221cd8-5caf-4c94-a6ed-45f32ec62f95",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "command": "rm /home/kali/Bug-bounty/new/URLs/URLs.txt ; cat /home/kali/Bug-bounty/new/results/200_status.txt | gau >> /home/kali/Bug-bounty/new/URLs/URLs.txt"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        3340,
+        -480
+      ],
+      "id": "5efdaa83-695c-4410-a35c-93561763083d",
+      "name": "Execute Command8"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3780,
+        -480
+      ],
+      "id": "5125d085-0d87-43ce-8748-10d45ff9fd64",
+      "name": "No Operation, do nothing2"
+    },
+    {
+      "parameters": {
+        "command": "rm /home/kali/Bug-bounty/new/URLs/URLs_status.txt ; cat /home/kali/Bug-bounty/new/URLs/URLs.txt | httpx-toolkit -sc | tee /home/kali/Bug-bounty/new/URLs/URLs_status.txt"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        3560,
+        -480
+      ],
+      "id": "d01d361c-bdb3-4f2b-b4bd-4a678cdf7fc0",
+      "name": "Execute Command9"
+    },
+    {
+      "parameters": {
+        "command": "rm /home/kali/Bug-bounty/new/URLs/200_URLs.txt ; cat /home/kali/Bug-bounty/new/URLs/URLs_status.txt | grep -a \"200\" | tee /home/kali/Bug-bounty/new/URLs/200_URLs.txt"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        4000,
+        -580
+      ],
+      "id": "c8509a9c-7479-4ca2-9a77-216c429b2e3d",
+      "name": "Execute Command10"
+    },
+    {
+      "parameters": {
+        "command": "rm /home/kali/Bug-bounty/new/URLs/400_URLs.txt ; cat /home/kali/Bug-bounty/new/URLs/URLs_status.txt | grep -a \"400\" | tee /home/kali/Bug-bounty/new/URLs/400_URLs.txt"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        4000,
+        -360
+      ],
+      "id": "6314cfd2-669d-4f3e-ab38-a08404d2f90c",
+      "name": "Execute Command11"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        4240,
+        -480
+      ],
+      "id": "d7c10e4a-11b3-4565-8ddb-c9e26f4209b0",
+      "name": "Merge2"
+    },
+    {
+      "parameters": {
+        "command": "rm /home/kali/Bug-bounty/new/URLs/Urls_Parameters.txt ; arjun -i /home/kali/Bug-bounty/new/URLs/200_URLs.txt -oT /home/kali/Bug-bounty/new/URLs/Urls_Parameters.txt"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        4440,
+        -480
+      ],
+      "id": "5c8ed79b-4391-4c6a-970d-164b1c51f804",
+      "name": "Execute Command12"
     }
   ],
   "pinData": {},
@@ -243,7 +381,7 @@
       "main": [
         [
           {
-            "node": "No Operation, do nothing1",
+            "node": "Merge",
             "type": "main",
             "index": 0
           }
@@ -254,9 +392,9 @@
       "main": [
         [
           {
-            "node": "No Operation, do nothing1",
+            "node": "Merge",
             "type": "main",
-            "index": 0
+            "index": 1
           }
         ]
       ]
@@ -265,9 +403,9 @@
       "main": [
         [
           {
-            "node": "No Operation, do nothing1",
+            "node": "Merge",
             "type": "main",
-            "index": 0
+            "index": 2
           }
         ]
       ]
@@ -276,20 +414,9 @@
       "main": [
         [
           {
-            "node": "No Operation, do nothing1",
+            "node": "Merge",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "No Operation, do nothing1": {
-      "main": [
-        [
-          {
-            "node": "Execute Command4",
-            "type": "main",
-            "index": 0
+            "index": 3
           }
         ]
       ]
@@ -305,20 +432,160 @@
         ]
       ]
     },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Execute Command4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "Execute Command6",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute Command7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command6": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command7": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Execute Command8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command8": {
+      "main": [
+        [
+          {
+            "node": "Execute Command9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command9": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing2": {
+      "main": [
+        [
+          {
+            "node": "Execute Command10",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute Command11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command10": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command11": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Execute Command12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Execute Command5": {
       "main": [
-        []
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
   "active": true,
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "IcVzpAVQZvZ92gmP"
   },
-  "versionId": "b8b549f3-7ff1-47ee-8663-709a9a91ca9e",
+  "versionId": "59935f86-cef1-49f2-a3de-39531128e941",
   "meta": {
-    "instanceId": "eb64aff6cb3711487287c6b0559bd4adee68c1a840c54cb4cb83af2433f58732"
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d50cd755d4fb22bc1a3f80d09d9b8d12b41a19ef9d779ab8949905ca45a75cdc"
   },
-  "id": "nGLxbic7B3FP1h0A",
+  "id": "IcVzpAVQZvZ92gmP",
   "tags": []
 }
